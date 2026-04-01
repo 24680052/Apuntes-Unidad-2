@@ -305,8 +305,9 @@ Una vez creados, se utilizan igual que las librerías del lenguaje: mediante sen
 <img width="1285" height="707" alt="image" src="https://github.com/user-attachments/assets/a66502d0-1b45-48f3-b7f0-602cba98193e" />
 <img width="1273" height="701" alt="image" src="https://github.com/user-attachments/assets/a344e974-4df5-473b-b21f-aedc05cfa90b" />
 
-### codigo 
 
+### codigo 
+`
     import flet as ft
     import matplotlib.pyplot as plt
     import numpy as np
@@ -393,10 +394,12 @@ Una vez creados, se utilizan igual que las librerías del lenguaje: mediante sen
 
 
     ft.app(target=main)
+    
 ### Ejemplo de componentes (class y dataclass) 
 ### Class
 
 <img width="1272" height="644" alt="image" src="https://github.com/user-attachments/assets/a41f7ffb-e751-47a9-a7f4-c36155c3dd34" />
+
 ### codigo 
 
     import flet as ft
@@ -445,7 +448,9 @@ Una vez creados, se utilizan igual que las librerías del lenguaje: mediante sen
 ### DataClass 
 
 <img width="1272" height="644" alt="image" src="https://github.com/user-attachments/assets/620ddfe9-4f31-455d-83de-ec1bf8e2e6b0" />
+
 ### codigo
+
     import flet as ft
     from dataclasses import dataclass
 
