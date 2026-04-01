@@ -126,6 +126,7 @@ Una vez creados, se utilizan igual que las librerías del lenguaje: mediante sen
 ### Ejemplo de codigo de catalogo de tienda tecnologica 
 <img width="1119" height="678" alt="image" src="https://github.com/user-attachments/assets/a3c3bded-10e2-4f69-8ebb-6d0989bd6ffc" />
 ### codigo 
+
     import flet as ft
 
     productos = [
@@ -305,6 +306,7 @@ Una vez creados, se utilizan igual que las librerías del lenguaje: mediante sen
 <img width="1273" height="701" alt="image" src="https://github.com/user-attachments/assets/a344e974-4df5-473b-b21f-aedc05cfa90b" />
 
 ### codigo 
+
     import flet as ft
     import matplotlib.pyplot as plt
     import numpy as np
@@ -396,6 +398,7 @@ Una vez creados, se utilizan igual que las librerías del lenguaje: mediante sen
 
 <img width="1272" height="644" alt="image" src="https://github.com/user-attachments/assets/a41f7ffb-e751-47a9-a7f4-c36155c3dd34" />
 ### codigo 
+
     import flet as ft
 
     # Definición del componente personalizado
