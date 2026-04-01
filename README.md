@@ -52,7 +52,7 @@ Juntos forman el ecosistema que permite el desarrollo modular y reutilizable de 
 
 --
 
-## 2.2 USO DE LIBRERÍAS PROPORCIONADAS POR EL LENGUAJEz
+## 2.2 USO DE LIBRERÍAS PROPORCIONADAS POR EL LENGUAJE
 --
 ## VENTAJAS
 - No requieren instalación externa.
