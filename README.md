@@ -124,7 +124,182 @@ Una vez creados, se utilizan igual que las librerías del lenguaje: mediante sen
 ## EJEMPLOS DE CÓDIGO VISTOS EN CLASES
 
 ### Ejemplo de codigo de catalogo de tienda tecnologica 
+<img width="1119" height="678" alt="image" src="https://github.com/user-attachments/assets/a3c3bded-10e2-4f69-8ebb-6d0989bd6ffc" />
+### codigo 
+    import flet as ft
 
+    productos = [
+    {"nombre": "Laptop Gamer", "descripcion": "Laptop potente para juegos y diseño", "precio": 25000, "imagen": "laptop.png"},
+    {"nombre": "Smartphone", "descripcion": "Teléfono con cámara de alta resolución", "precio": 12000, "imagen": "phone.png"},
+    {"nombre": "Audífonos Bluetooth", "descripcion": "Sonido envolvente inalámbrico", "precio": 1800, "imagen": "audifonos.png"},
+    {"nombre": "Smartwatch", "descripcion": "Reloj inteligente con monitor de salud", "precio": 3500, "imagen": "watch.png"},
+    {"nombre": "Tablet", "descripcion": "Pantalla grande ideal para estudio", "precio": 8000, "imagen":     "tablet.png"}
+    ]
+
+    class ProductoCard(ft.Container):
+
+    def __init__(self, producto, agregar_carrito, agregar_favorito):
+    super().__init__()
+
+    self.producto = producto
+    self.agregar_favorito = agregar_favorito
+
+    self.width = 260
+    self.padding = 15
+    self.border_radius = 15
+    self.bgcolor = "white"
+
+    self.shadow = ft.BoxShadow(
+        blur_radius=15,
+        offset=ft.Offset(4,4),
+        color=ft.Colors.BLACK12
+    )
+
+    self.icono_fav = ft.IconButton(
+        icon=ft.Icons.FAVORITE_BORDER,
+        icon_color="red",
+        on_click=self.toggle_favorito
+    )
+
+    self.content = ft.Column(
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        controls=[
+
+            ft.Image(
+                src=f"/{producto['imagen']}",
+                width=120,
+                height=120
+            ),
+
+            ft.Text(
+                producto["nombre"],
+                size=18,
+                weight=ft.FontWeight.BOLD
+            ),
+
+            ft.Text(
+                producto["descripcion"],
+                size=12,
+                text_align=ft.TextAlign.CENTER
+            ),
+
+            ft.Text(
+                f"${producto['precio']}",
+                size=16,
+                color=ft.Colors.GREEN,
+                weight=ft.FontWeight.BOLD
+            ),
+
+            ft.Row(
+                alignment=ft.MainAxisAlignment.CENTER,
+                controls=[
+                    self.icono_fav
+                ]
+            ),
+
+            ft.ElevatedButton(
+                "Agregar al carrito",
+                icon=ft.Icons.SHOPPING_CART,
+                on_click=lambda e: agregar_carrito(self.producto)
+            )
+
+        ]
+    )
+
+    def toggle_favorito(self, e):
+
+    if self.icono_fav.icon == ft.Icons.FAVORITE_BORDER:
+        self.icono_fav.icon = ft.Icons.FAVORITE
+        self.agregar_favorito(self.producto)
+    else:
+        self.icono_fav.icon = ft.Icons.FAVORITE_BORDER
+
+    self.update()
+
+    def main(page: ft.Page):
+
+    page.title = "Tienda Tecnológica"
+    page.bgcolor = "#f2f2f2"
+    page.scroll = "auto"
+
+    carrito = []
+    favoritos = []
+
+    contador_carrito = ft.Text("0")
+    contador_fav = ft.Text("0")
+
+    # -----------------------
+    # FUNCIONES
+    # -----------------------
+
+    def agregar_carrito(producto):
+    carrito.append(producto)
+    contador_carrito.value = str(len(carrito))
+    page.update()
+
+    def agregar_favorito(producto):
+    favoritos.append(producto)
+    contador_fav.value = str(len(favoritos))
+    page.update()
+
+    # -----------------------
+    # CREAR TARJETAS
+    # -----------------------
+
+    cards = []
+
+    for producto in productos:
+    cards.append(
+        ProductoCard(producto, agregar_carrito, agregar_favorito)
+    )
+
+    # -----------------------
+    # INTERFAZ
+    # -----------------------
+
+    page.add(
+
+    ft.Column(
+        controls=[
+
+            ft.Row(
+                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                controls=[
+
+                    ft.Text(
+                        "Tienda Tecnológica",
+                        size=30,
+                        weight=ft.FontWeight.BOLD
+                    ),
+
+                    ft.Row(
+                        controls=[
+
+                            ft.Icon(ft.Icons.FAVORITE, color="red"),
+                            contador_fav,
+
+                            ft.Icon(ft.Icons.SHOPPING_CART),
+                            contador_carrito
+
+                        ]
+                    )
+
+                ]
+            ),
+
+            ft.Row(
+                controls=cards,
+                wrap=True,
+                spacing=20
+            )
+
+        ]
+    )
+
+    )
+
+    ft.app(target=main, assets_dir="assets")
+    
 ### Ejemplo de graficas grid 
 <img width="1285" height="707" alt="image" src="https://github.com/user-attachments/assets/a66502d0-1b45-48f3-b7f0-602cba98193e" />
 <img width="1273" height="701" alt="image" src="https://github.com/user-attachments/assets/a344e974-4df5-473b-b21f-aedc05cfa90b" />
