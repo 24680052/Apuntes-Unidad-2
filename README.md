@@ -124,7 +124,9 @@ Una vez creados, se utilizan igual que las librerías del lenguaje: mediante sen
 ## EJEMPLOS DE CÓDIGO VISTOS EN CLASES
 
 ### Ejemplo de codigo de catalogo de tienda tecnologica 
+
 <img width="1119" height="678" alt="image" src="https://github.com/user-attachments/assets/a3c3bded-10e2-4f69-8ebb-6d0989bd6ffc" />
+
 ### codigo 
 
     import flet as ft
